@@ -1,7 +1,16 @@
 import express from 'express'
-console.log("hello worldddddddddddddd")
-let app = express()
-let PORT = process.env.PORT;
+import { convertUSD } from './controllers/convertUSD.js';
+import fileUpload from 'express-fileupload'
 
-app.get('/',(req,res) => res.json('hello world'))
+let app = express()
+app.use(fileUpload({ useTempFiles: false, tempFileDir: "../tmp/" }))
+
+app.get('/', (req,res) => res.json('hello worldddddddd'))
+app.post('/', convertUSD)
+
+
+let PORT = process.env.PORT;
 app.listen(PORT || 5000, () => console.log("running on port ", PORT || 5000));
+
+
+
