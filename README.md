@@ -6,7 +6,7 @@ https://github.com/google/usd_from_gltf#compatibility
 # Run
 
 Using Node js API convert single glb file to usd
-Runs on port 5000
+Runs on port 4100
 ```
   ./start.sh
 ```
