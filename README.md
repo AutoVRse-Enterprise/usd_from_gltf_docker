@@ -5,8 +5,13 @@ https://github.com/google/usd_from_gltf#compatibility
 
 # Run
 
-Using helper script that will output a usdz file with same name as input
-
+Using Node js API convert single glb file to usd
+Runs on port 5000
+```
+  ./start.sh
+```
+Once server is up and running,
+curl POST file to 127.0.0.1:4100/
 Via Npm or yarn
 
 ```
