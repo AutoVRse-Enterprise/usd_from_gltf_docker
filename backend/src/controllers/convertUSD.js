@@ -19,8 +19,9 @@ import { response } from "express"
 // }
 
 export const convertUSD = async (req, res) => {
-  const file = req.files?.files[0]
-  if(!file) return res.json('File not avai')
+  console.log(req.files)
+  const file = req.files?.files
+  // if(!file) return res.json('File not avai')
   console.log(req.files)
   try{
     // file.tempFilePath
@@ -36,7 +37,7 @@ export const convertUSD = async (req, res) => {
     // }
     let glbDir = fileDir + 'tmp.glb' 
     await fs.writeFile(fileDir+'tmp.glb', file.data)
-    let usdDir = fileDir + 'tmp.usd'
+    let usdDir = fileDir + 'tmp.usdz'
     await ProcessExecutor.run('usd_from_gltf', glbDir, [usdDir])
     const usd = await fs.readFile(usdDir)
     return res.type('model/usd').send(usd)
